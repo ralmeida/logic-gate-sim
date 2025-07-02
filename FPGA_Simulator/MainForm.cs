@@ -116,7 +116,7 @@ namespace FPGA_Simulator
         
         protected void ProcessTestRun()
         {
-            //FPGAPerson personData = GetPersonFromPopulation(testReq.PersionID);
+            //FPGAPerson personData = GetPersonFromPopulation(testReq.PersonID);
 
             //Setup FPGA Board
             FPGABoard testBoard = FPGA_Controller;

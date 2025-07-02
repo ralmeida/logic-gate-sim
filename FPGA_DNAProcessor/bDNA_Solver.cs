@@ -281,17 +281,17 @@ namespace FPGA_DNAProcessor
                 {
                     backgroundWorker.ReportProgress(1, ".");
 
-                    string PersionID = Guid.NewGuid().ToString();
+                    string PersonID = Guid.NewGuid().ToString();
 
                     FPGAPerson PersonData = new FPGAPerson()
                     {
-                        ID = PersionID,
+                        ID = PersonID,
                         Data = FPGABoard.RandomConfig(TestRequest.SquareSize).ToBitArrayTable(FPGAConfig.BytesPerCell, TestRequest.SquareSize),
                         Results = new List<string>(),
                         Weight = 0
                     };
 
-                    Population.Add(PersionID, PersonData);
+                    Population.Add(PersonID, PersonData);
                 }
 
                 backgroundWorker.ReportProgress(1, "done");
@@ -339,7 +339,7 @@ namespace FPGA_DNAProcessor
             {
                 FPGATestConfig testRunConfig = new FPGATestConfig()
                 {
-                    PersionID = (string)person.Key,
+                    PersonID = (string)person.Key,
                     InputCount = TestRequest.InputCount,
                     OutputCount = TestRequest.OutputCount,
                     TestFile = TestRequest.TestInputsFile
@@ -388,7 +388,7 @@ namespace FPGA_DNAProcessor
 
         protected void ProcessTestRun(FPGATestConfig testReq)
         {
-            FPGAPerson personData = GetPersonFromPopulation(testReq.PersionID);
+            FPGAPerson personData = GetPersonFromPopulation(testReq.PersonID);
 
             //Setup FPGA Board
             FPGABoard testBoard = new FPGABoard(personData.Data, testReq.InputCount, testReq.OutputCount)
@@ -482,7 +482,7 @@ namespace FPGA_DNAProcessor
             //{
             //    results[i] = personData.Results[i];
             //}
-            //string fileToWrite = string.Format(@"{0}\{1}.txt", OutputDNADir, testReq.PersionID);
+            //string fileToWrite = string.Format(@"{0}\{1}.txt", OutputDNADir, testReq.PersonID);
             //File.WriteAllLines(fileToWrite, results);
 
             //Console.WriteLine("{0} Tests: {1}", personData.ID, TestLines.Count());
@@ -874,17 +874,17 @@ namespace FPGA_DNAProcessor
             {
                 backgroundWorker.ReportProgress(1, ".");
 
-                string PersionID = Guid.NewGuid().ToString();
+                string PersonID = Guid.NewGuid().ToString();
 
                 FPGAPerson PersonData = new FPGAPerson()
                 {
-                    ID = PersionID,
+                    ID = PersonID,
                     Data = newHold[i],
                     Results = new List<string>(),
                     Weight = 0
                 };
 
-                Population.Add(PersionID, PersonData);
+                Population.Add(PersonID, PersonData);
             }
 
             backgroundWorker.ReportProgress(1, "done");
