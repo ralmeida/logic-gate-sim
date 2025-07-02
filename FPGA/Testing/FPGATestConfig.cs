@@ -8,7 +8,7 @@ namespace FPGA
 {
     public class FPGATestConfig
     {
-        public string PersionID { get; set; } = null;
+        public string PersonID { get; set; } = null;
 
         public string TestFile { get; set; } = null;
 
