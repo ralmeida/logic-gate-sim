@@ -315,7 +315,7 @@ namespace FPGA
         }
 
         /// <summary>
-        /// Atempt to register with Board Inputs
+        /// Attempt to register with Board Inputs
         /// </summary>
         protected void RegisterBoardInputs()
         {
@@ -326,7 +326,7 @@ namespace FPGA
         }
 
         /// <summary>
-        /// Atempt to register with Board Outputs
+        /// Attempt to register with Board Outputs
         /// </summary>
         protected void RegisterBoardOutputs()
         {
