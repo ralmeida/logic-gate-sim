@@ -126,9 +126,16 @@
         /// <returns>Output</returns>
         public static bool XOR(bool[] vals)
         {
-            bool totalRslt = false;
-            if (vals.Length < 2) return totalRslt;
-            return XOR(vals[0], vals[1]);
+            if (vals == null || vals.Length == 0)
+                return false;
+
+            bool result = false;
+            for (int i = 0; i < vals.Length; i++)
+            {
+                result ^= vals[i];
+            }
+
+            return result;
         }
         
         /// <summary>
@@ -148,7 +155,7 @@
         /// <returns>Output</returns>
         public static bool XNOR(bool[] vals)
         {
-            return AND(vals) || NOR(vals);
+            return !XOR(vals);
         }
     }
 }
