@@ -1,4 +1,5 @@
-﻿namespace FPGA
+﻿using System.Linq;
+namespace FPGA
 {
     /// <summary>
     /// Logic Gates
@@ -129,13 +130,7 @@
             if (vals == null || vals.Length == 0)
                 return false;
 
-            bool result = false;
-            for (int i = 0; i < vals.Length; i++)
-            {
-                result ^= vals[i];
-            }
-
-            return result;
+            return vals.Aggregate(false, (current, val) => current ^ val);
         }
         
         /// <summary>
