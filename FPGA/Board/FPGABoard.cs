@@ -439,6 +439,28 @@ namespace FPGA
             Console.WriteLine("     [1,1]-> {0}", GATE.XNOR(true, true));
             Console.WriteLine(" -----------------------------------");
             Console.WriteLine("");
+
+            //Additional multi-input gate tests
+            bool[] xorVals1 = new bool[] { false, false, false };
+            bool[] xorVals2 = new bool[] { true, false, true };
+            bool[] xorVals3 = new bool[] { true, true, true };
+            Console.WriteLine("  8) GATE_XOR[] - [{0}]",
+                !GATE.XOR(xorVals1) && GATE.XOR(xorVals2) && GATE.XOR(xorVals3) ? "Success" : "Fail");
+            Console.WriteLine("");
+            Console.WriteLine("     [0,0,0]-> {0}", GATE.XOR(xorVals1));
+            Console.WriteLine("     [1,0,1]-> {0}", GATE.XOR(xorVals2));
+            Console.WriteLine("     [1,1,1]-> {0}", GATE.XOR(xorVals3));
+            Console.WriteLine(" -----------------------------------");
+            Console.WriteLine("");
+
+            Console.WriteLine("  9) GATE_XNOR[] - [{0}]",
+                GATE.XNOR(xorVals1) && !GATE.XNOR(xorVals2) && !GATE.XNOR(xorVals3) ? "Success" : "Fail");
+            Console.WriteLine("");
+            Console.WriteLine("     [0,0,0]-> {0}", GATE.XNOR(xorVals1));
+            Console.WriteLine("     [1,0,1]-> {0}", GATE.XNOR(xorVals2));
+            Console.WriteLine("     [1,1,1]-> {0}", GATE.XNOR(xorVals3));
+            Console.WriteLine(" -----------------------------------");
+            Console.WriteLine("");
         }
         
         /// <summary>
